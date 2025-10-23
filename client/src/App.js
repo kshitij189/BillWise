@@ -1,5 +1,5 @@
 
-//Copyright (c) 2022 Panshak Solomon
+
 
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'

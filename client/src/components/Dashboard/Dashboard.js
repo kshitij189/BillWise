@@ -104,7 +104,7 @@ const Dashboard = () => {
 
                         <li className={styles.listItem} >
                             <div>
-                                <p>{toCommas(totalAmount - totalPaid)}</p>
+                                <p>{toCommas(Math.max(totalAmount - totalPaid, 0).toFixed(2))}</p>
                                 <h2>Pending Amount</h2>
                             </div>
                             <div>
@@ -114,7 +114,7 @@ const Dashboard = () => {
 
                         <li className={styles.listItem} >
                             <div>
-                                <p>{toCommas(totalAmount)}</p>
+                                <p>{toCommas(totalAmount.toFixed(2))}</p>
                                 <h2>Total Amount</h2>
                             </div>
                             <div>
