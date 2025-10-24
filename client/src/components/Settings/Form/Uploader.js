@@ -30,17 +30,15 @@ export default function Uploader({ form, setForm }) {
     },[file])
 
   const onDrop = useCallback((acceptedFiles) => {
-    const url = "https://api.cloudinary.com/v1_1/almpo/image/upload";
+    const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`;
+
 
     acceptedFiles.forEach(async (acceptedFile) => {
     //   const { signature, timestamp } = await getSignature();
 
       const formData = new FormData();
       formData.append("file", acceptedFile);
-      formData.append(
-        "upload_preset",
-        "invoice"
-      );
+      formData.append("upload_preset", process.env.REACT_APP_UPLOAD_PRESET);
       
       const response = await fetch(url, {
         method: "post",

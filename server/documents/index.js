@@ -1,219 +1,199 @@
 import moment from 'moment'
 
-export default function (
-   { name,
-      address,
-      phone,
-      email,
-      dueDate,
-      date,
-      id,
-      notes,
-      subTotal,
-      type,
-      vat,
-      total,
-      items,
-      status,
-      totalAmountReceived,
-      balanceDue,
-      company,
-   }) {
-    const today = new Date();
-return `
+export default function ({
+  name, address, phone, email, dueDate, date, id, notes, subTotal, type, vat,
+  total, items, status, totalAmountReceived, balanceDue, company
+}) {
+  const today = new Date();
+  return `
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-
-.invoice-container {
-    margin: 0;
-    padding: 0;
-    padding-top: 10px;
-    font-family: 'Roboto', sans-serif;
-    width: 530px;
-    margin: 0px auto;
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      padding: 0; margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #fff;
+      width: 800px;
+      margin: 0 auto;
+      color: #333;
     }
-
-table {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-table td, table th {
-  border: 1px solid rgb(247, 247, 247);
-  padding: 10px;
-}
-
-table tr:nth-child(even){background-color: #f8f8f8;}
-
-table tr:hover {background-color: rgb(243, 243, 243);}
-
-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #FFFFFF;
-  color: rgb(78, 78, 78);
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 5px;
-    
-
-}
-.address {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 0px 15px 0px;
-    line-height: 10px;
-    font-size: 12px;
-    margin-top: -20px
-
-}
-
-.status {
-    text-align: right;
-}
-.receipt-id {
-    text-align: right;
-}
-
-.title {
-    font-weight: 100px;
-    text-transform: uppercase;
-    color: gray;
-    letter-spacing: 2px;
-    font-size: 8px;
-    line-height: 5px;
-}
-
-.summary {
-    margin-top: 2px;
-    margin-right: 0px;
-    margin-left: 50%;
-    margin-bottom: 15px;
-}
-
-img {
-    width: 100px;
-   
-}
-
-</style>
+    .header-table {
+      width: 100%; border: none; margin-bottom: 24px;
+    }
+    .header-table td {
+      padding: 2px 5px; border: none;
+      vertical-align: top;
+    }
+    .logo-cell { width: 140px; }
+    .company-info {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    .title-big {
+      font-size: 30px;
+      font-weight: bold;
+      color: #888;
+      text-align: right;
+    }
+    .invoice-num {
+      text-align: right; color: #666; font-size: 14px;
+      padding-top: 20px;
+    }
+    .bill-table {
+      width: 100%;
+      margin-bottom: 24px;
+      border: none;
+      table-layout: fixed;
+    }
+    .bill-table td {
+      padding: 2px 10px; border: none;
+      vertical-align: top;
+    }
+    .billto {
+      color: #888; font-size: 11px; padding-bottom: 2px; font-weight: bold
+    }
+    .right-details {
+      text-align: right;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .status-unpaid { color: #c00; font-weight: bold; }
+    .status-paid { color: #27ae60; font-weight: bold; }
+    .amount-big { font-size: 20px; font-weight: bold; }
+    table.items {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 16px;
+    }
+    table.items th, table.items td {
+      border: 1px solid #ddd;
+      font-size: 13px;
+      padding: 8px 6px;
+      text-align: left;
+    }
+    table.items th {
+      background: #fafafa;
+      color: #555;
+      font-weight: 500;
+    }
+    table.summary {
+      float: right; margin-top: 16px;
+      width: 300px;
+      border-collapse: collapse;
+    }
+    table.summary th, table.summary td {
+      border: none;
+      padding: 7px 8px;
+      font-size: 13px;
+      text-align: right;
+    }
+    table.summary th {
+      text-align: left;
+      color: #666;
+      font-weight: 400;
+    }
+    table.summary tr:last-child th, 
+    table.summary tr:last-child td {
+      font-weight: bold;
+      color: #000;
+      font-size: 15px;
+    }
+    .notes-section {
+      clear: both;
+      margin-top: 36px;
+      border-top: 1px solid #ddd;
+      padding-top: 16px;
+      font-size: 13px;
+    }
+    .notes-label { font-weight:bold; }
+    @media print {
+      body { width: auto; }
+      table.summary { float: none; margin: 0; }
+    }
+  </style>
 </head>
 <body>
-<div class="invoice-container">
-<section  class="header">
-        <div>
-          ${company?.logo ? `<img src=${company?.logo} />` : `<h2>___</h2>`}
+  <table class="header-table">
+    <tr>
+      <td class="logo-cell">
+        ${company?.logo ? `<img src="${company.logo}" style="width:110px;max-height:80px;" />` : ''}
+      </td>
+      <td class="company-info">
+        <div style="font-size:17px; font-weight:bold; margin-bottom:2px">
+          ${company.businessName || company.name || ''}
         </div>
-        <div class="receipt-id" style="margin-top: -120px 0 40px 0">
-            
+        <div>${company.email || ''}</div>
+        <div>${company.phoneNumber || ''}</div>
+        <div>${company.contactAddress || ''}</div>
+      </td>
+      <td>
+        <div class="title-big">${type || 'Invoice'}</div>
+        <div class="invoice-num">NO: ${id}</div>
+      </td>
+    </tr>
+  </table>
+
+  <table class="bill-table">
+    <tr>
+      <td style="width: 46%">
+        <div class="billto">BILL TO</div>
+        <div>${name}</div>
+        <div>${email}</div>
+        <div>${phone}</div>
+        <div>${address}</div>
+      </td>
+      <td style="width: 8%"></td>
+      <td class="right-details">
+        <div style="font-size:11px; color:#888">STATUS</div>
+        <div class="${Number(balanceDue) <= 0 ? 'status-paid' : 'status-unpaid'}">
+          ${Number(balanceDue) <= 0 ? "Paid" : "Unpaid"}
         </div>
-</section>
-<section class="address">
+        <div style="font-size:11px; color:#888; margin-top:9px">DATE</div>
+        <div>${moment(date).format('ll')}</div>
+        <div style="font-size:11px; color:#888; margin-top:9px">DUE DATE</div>
+        <div>${moment(dueDate).format('ll')}</div>
+        <div style="font-size:11px; color:#888; margin-top:9px">AMOUNT</div>
+        <div class="amount-big">${total}</div>
+      </td>
+    </tr>
+  </table>
 
-      <div>
-          <p class="title">From:</p>
-          <h4 style="font-size: 9px; line-height: 5px">${company.businessName ? company.businessName : company.name}</h4>
-          <p style="font-size: 9px; line-height: 5px">${company.email}</p>
-          <p style="font-size: 9px; line-height: 5px">${company.phoneNumber}</p>
-          <p style="font-size: 9px; line-height: 5px">${company.contactAddress}</p>
-      </div>
+  <table class="items">
+    <tr>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Disc(%)</th>
+      <th style="text-align: right;">Amount</th>
+    </tr>
+    ${items.map(item => `
+      <tr>
+        <td>${item.itemName}</td>
+        <td>${item.quantity}</td>
+        <td>${item.unitPrice}</td>
+        <td>${item.discount}</td>
+        <td style="text-align:right;">${(item.quantity * item.unitPrice - item.quantity * item.unitPrice * item.discount / 100).toFixed(2)}</td>
+      </tr>
+    `).join('')}
+  </table>
 
-      <div style="margin-bottom: 100px; margin-top: 20px">
-      <p class="title">Bill to:</p>
-        <h4 style="font-size: 9px; line-height: 5px">${name}</h4>
-        <p style="font-size: 9px; line-height: 5px">${email}</p>
-        <p style="font-size: 9px; line-height: 5px">${phone}</p>
-        <p style="font-size: 9px; line-height: 5px">${address}</p>
-      </div>
+  <table class="summary">
+    <tr><th>Invoice Summary</th><td></td></tr>
+    <tr><th>Subtotal:</th><td>${subTotal}</td></tr>
+    <tr><th>VAT(8%):</th><td>${vat}</td></tr>
+    <tr><th>Total</th><td>${total}</td></tr>
+    <tr><th>Paid</th><td>INR ${totalAmountReceived}</td></tr>
+    <tr><th>Balance</th><td>INR ${balanceDue}</td></tr>
+  </table>
+  <div style="clear:both;"></div>
 
-    <div class="status" style="margin-top: -280px">
-        <h1 style="font-size: 12px">${Number(balanceDue) <= 0 ? 'Receipt' : type}</h1>
-        <p style="font-size: 8px; margin-bottom: 10px">${id}</p>
-        <p class="title" style="font-size: 8px">Status</p>
-        <h3 style="font-size: 12px">${status}</h3>
-        <p class="title" style="font-size: 8px">Date</p>
-        <p  style="font-size: 9px" >${moment(date).format('ll')}</p>
-        <p class="title"  style="font-size: 8px">Due Date</p>
-        <p  style="font-size: 9px">${moment(dueDate).format('ll')}</p>
-        <p class="title"  style="font-size: 8px">Amount</p>
-        <h3 style="font-size: 12px">${total}</h3>
-    </div>
-</section>
-
-<table>
-  <tr>
-    <th style="font-size: 9px">Item</th>
-    <th style="font-size: 9px">Quantity</th>
-    <th style="font-size: 9px">Price</th>
-    <th style="font-size: 9px">Discount(%)</th>
-    <th style="text-align: right; font-size: 9px">Amount</th>
-  </tr>
-
-  ${
-   items.map((item) => (
- `  <tr>
-    <td style="font-size: 9px">${item.itemName}</td>
-    <td style="font-size: 9px">${item.quantity}</td>
-    <td style="font-size: 9px">${item.unitPrice}</td>
-    <td style="font-size: 9px">${item.discount}</td>
-    <td style="text-align: right; font-size: 9px">${(item.quantity * item.unitPrice) - (item.quantity * item.unitPrice) * item.discount / 100}</td>
-  </tr>`
-   ))
-  }
-
-
-</table>
-
-<section class="summary">
-    <table>
-        <tr>
-          <th style="font-size: 9px">Invoice Summary</th>
-          <th></th>
-        </tr>
-        <tr>
-          <td style="font-size: 9px">Sub Total</td>
-          <td style="text-align: right; font-size: 9px; font-weight: 700">${subTotal}</td>
-        </tr>
-
-        <tr>
-            <td style="font-size: 10px">VAT</td>
-            <td style="text-align: right; font-size: 9px; font-weight: 700">${vat}</td>
-          </tr>
-
-        <tr>
-            <td style="font-size: 10px">Total</td>
-            <td style="text-align: right; font-size: 9px; font-weight: 700">${total}</td>
-          </tr>
-
-        <tr>
-            <td style="font-size: 10px" >Paid</td>
-            <td style="text-align: right; font-size: 9px; font-weight: 700">${totalAmountReceived}</td>
-          </tr>
-
-          <tr>
-          <td style="font-size: 9px">Balance Due</td>
-          <td style="text-align: right; font-size: 9px; font-weight: 700">${balanceDue}</td>
-        </tr>
-        
-      </table>
-  </section>
-  <div>
-      <hr>
-      <h4 style="font-size: 9px">Note</h4>
-      <p style="font-size: 9px">${notes}</p>
+  <div class="notes-section">
+    <span class="notes-label">Note/Payment Info</span>
+    <div>${notes || ''}</div>
   </div>
-</div>
 </body>
-</html>`
-;
-};
+</html>
+`;
+}
