@@ -23,7 +23,7 @@ function App() {
   const user = JSON.parse(localStorage.getItem('profile'))
 
   return (
-    <div>
+    <div style={{ width: '100%', maxWidth: '100%', margin: 0, padding: 0 }}>
       <BrowserRouter>
       <SnackbarProvider>
      {user && <NavBar />} 

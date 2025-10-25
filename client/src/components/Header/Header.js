@@ -46,7 +46,7 @@ const Header = () => {
 
 
     // const getMetaData = async() => {
-    //   const response = await axios.get('https://api.github.com/repos/panshak/arc')
+    //   const response = await axios.get('https://api.github.com/repos/kshitij189/BillWise')
     //       // console.log(response.data);
     // }
 
@@ -116,7 +116,7 @@ const Header = () => {
 
     if(!user) return (
         <div className={styles.header2}>
-         <img style={{width: '50px', cursor: 'pointer'}} onClick={()=> history.push('/')} src="https://i.postimg.cc/hGZKzdkS/logo.png" alt="arc-invoice" />
+         <img style={{width: '180px', cursor: 'pointer'}} onClick={()=> history.push('/')} src="https://res.cloudinary.com/dgltfenoq/image/upload/v1761421338/Screenshot_2025-10-26_010737_tsl1ox.png" alt="arc-invoice" />
         <button onClick={()=> history.push('/login')} className={styles.login}>Get started</button>
         </div>
     )
