@@ -151,7 +151,8 @@ const headerStyle = { borderBottom: 'none', textAlign: 'center'}
       <TableHead>
           <TableRow>
             <TableCell style={{...headerStyle, width: '10px'}}>Number</TableCell>
-            <TableCell style={headerStyle}>Name</TableCell>
+            <TableCell className={styles.nameCell} style={{...headerStyle, fontWeight: 'bold', fontSize: '1.3rem'}} >Name</TableCell>
+
             <TableCell style={headerStyle}>Email</TableCell>
             <TableCell style={headerStyle}>Phone</TableCell>
             <TableCell style={headerStyle}>Edit</TableCell>
@@ -167,7 +168,9 @@ const headerStyle = { borderBottom: 'none', textAlign: 'center'}
           ).map((row, index) => (
             <TableRow key={row._id} styel={{cursor: 'pointer'}} >
               <TableCell style={{...tableStyle, width: '10px'}}>{index + 1}</TableCell>
-              <TableCell  style={tableStyle} scope="row" > <Button style={{textTransform: 'none'}}  > {row.name} </Button></TableCell>
+              <TableCell className={styles.nameCell} style={{...tableStyle, fontWeight: 'bold', fontSize: '1.45rem', color: '#232323'}} scope="row" >
+               <Button style={{textTransform: 'none', fontSize: '1.2rem', fontWeight: 'bold', color: '#232323'}}>{row.name}</Button>
+               </TableCell>
               <TableCell style={tableStyle}>{row.email}</TableCell>
               <TableCell style={tableStyle}>{row.phone}</TableCell>
               <TableCell style={{...tableStyle, width: '10px'}}>

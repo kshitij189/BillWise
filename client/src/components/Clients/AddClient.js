@@ -34,7 +34,8 @@ const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
+      <Typography variant="h5" style={{ fontWeight: 700, fontSize: '1.5rem' }}>{children}</Typography>
+
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
           <CloseIcon />
@@ -115,8 +116,8 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
     display: "block",
     padding: "1.4rem 0.75rem",
     width: "100%",
-    fontSize: "0.8rem",
-    lineHeight: 1.25,
+    fontSize: "1.2rem",
+    lineHeight: 1.35,
     color: "#55595c",
     backgroundColor: "#fff",
     backgroundImage: "none",
@@ -188,9 +189,10 @@ const AddClient = ({ setOpen, open, currentId, setCurrentId }) => {
 
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleSubmitClient} variant="contained" style={{ marginRight: '25px' }} >
-              Save Customer
+            <Button onClick={handleSubmitClient} variant="contained" style={{ marginRight: '25px', fontSize: '1.1rem', padding: '12px 28px' }}>
+                Save Customer
             </Button>
+
           </DialogActions>
         </Dialog>
       </form>
