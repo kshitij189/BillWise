@@ -99,7 +99,7 @@ const AddClient = ({ setOpen, open }) => {
       display: "block",
       padding: "1.4rem 0.75rem",
       width: "100%",
-      fontSize: "0.8rem",
+      fontSize: "1.2rem",
       lineHeight: 1.25,
       color: "#55595c",
       backgroundColor: "#fff",
@@ -166,7 +166,7 @@ const AddClient = ({ setOpen, open }) => {
 
             </DialogContent>
             <DialogActions>
-            <Button autoFocus onClick={handleSubmitClient} variant="contained" style={{marginRight: '25px'}} >
+            <Button autoFocus onClick={handleSubmitClient} variant="contained" style={{marginRight: '25px' , fontSize : '20px'}} >
                 Save Customer
             </Button>
             </DialogActions>

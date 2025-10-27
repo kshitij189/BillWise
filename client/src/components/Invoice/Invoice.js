@@ -287,7 +287,8 @@ const Invoice = () => {
                             padding: '8px',
                             display: 'inline-block',
                             backgroundColor: '#f4f4f4',
-                            outline: '0px solid transparent'
+                            outline: '0px solid transparent',
+                            
                         }} 
                             contenteditable="true"
                             onInput={e => setInvoiceData({
@@ -297,6 +298,7 @@ const Invoice = () => {
                         <span style={{width:'40px',
                             color: 'black',
                             padding: '15px',
+                            fontSize: '18px',
                         }} 
                             contenteditable="false"> {invoiceData.invoiceNumber}</span>
                         <br/>
@@ -309,7 +311,7 @@ const Invoice = () => {
                 <Grid container justifyContent="space-between" style={{marginTop: '40px'}} >
                     <Grid item style={{width: '50%'}}>
                         <Container>
-                            <Typography variant="overline" style={{color: 'gray', paddingRight: '3px'}} gutterBottom>Bill to</Typography>
+                            <Typography variant="overline" style={{color: 'gray', paddingRight: '3px' , fontSize : '16px'}} gutterBottom>Bill to</Typography>
                             
 
                             {client  && (
@@ -353,15 +355,24 @@ const Invoice = () => {
                     </Grid>
 
                     <Grid item style={{marginRight: 20, textAlign: 'right'}}>
-                        <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Status</Typography>
-                        <Typography variant="h6" gutterBottom style={{color: (type === 'Receipt' ? 'green' : 'red')}}>{(type === 'Receipt' ? 'Paid' : 'Unpaid')}</Typography>
-                        <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Date</Typography>
-                        <Typography variant="body2" gutterBottom>{moment().format("MMM Do YYYY")}</Typography>
-                        <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Due Date</Typography>
-                        <Typography variant="body2" gutterBottom>{selectedDate? moment(selectedDate).format("MMM Do YYYY") : '27th Sep 2021'}</Typography>
-                        <Typography variant="overline" gutterBottom>Amount</Typography>
-                        <Typography variant="h6" gutterBottom>{currency} {toCommas(total)}</Typography>
+                      <Typography variant="overline" style={{color: 'gray', fontSize: '1.03rem'}} gutterBottom>Status</Typography>
+                      <Typography variant="h6" gutterBottom style={{color: (type === 'Receipt' ? 'green' : 'red'), fontSize: '1.35rem', fontWeight: 700}}>
+                         {type === 'Receipt' ? 'Paid' : 'Unpaid'}
+                      </Typography>
+                    <Typography variant="overline" style={{color: 'gray', fontSize: '1.03rem'}} gutterBottom>Date</Typography>
+                    <Typography variant="body2" gutterBottom style={{fontSize: '1.08rem'}}>
+                        {moment().format("MMM Do YYYY")}
+                    </Typography>
+                     <Typography variant="overline" style={{color: 'gray', fontSize: '1.03rem'}} gutterBottom>Due Date</Typography>
+                    <Typography variant="body2" gutterBottom style={{fontSize: '1.08rem'}}>
+                        {selectedDate ? moment(selectedDate).format("MMM Do YYYY") : '27th Sep 2021'}
+                          </Typography>
+                   <Typography variant="overline" gutterBottom style={{fontSize: '1.03rem'}}>Amount</Typography>
+                       <Typography variant="h6" gutterBottom style={{fontSize: '1.23rem', fontWeight: 700}}>
+                     {currency} {toCommas(total)}
+                      </Typography>
                     </Grid>
+
                 </Grid>
             </Container>
 
@@ -383,14 +394,14 @@ const Invoice = () => {
             <TableBody>
             {invoiceData.items.map((itemField, index) => (
                 <TableRow key={index}>
-                <TableCell  scope="row" style={{width: '40%' }}> <InputBase style={{width: '100%'}} outline="none" sx={{ ml: 1, flex: 1 }} type="text" name="itemName" onChange={e => handleChange(index, e)} value={itemField.itemName} placeholder="Item name or description" /> </TableCell>
-                <TableCell align="right"> <InputBase sx={{ ml: 1, flex: 1 }} type="number" name="quantity" onChange={e => handleChange(index, e)} value={itemField.quantity} placeholder="0" /> </TableCell>
-                <TableCell align="right"> <InputBase sx={{ ml: 1, flex: 1 }} type="number" name="unitPrice" onChange={e => handleChange(index, e)} value={itemField.unitPrice} placeholder="0" /> </TableCell>
-                <TableCell align="right"> <InputBase sx={{ ml: 1, flex: 1 }} type="number" name="discount"  onChange={e => handleChange(index, e)} value={itemField.discount} placeholder="0" /> </TableCell>
-                <TableCell align="right"> <InputBase sx={{ ml: 1, flex: 1 }} type="number" name="amount" onChange={e => handleChange(index, e)}  value={(itemField.quantity * itemField.unitPrice) - (itemField.quantity * itemField.unitPrice) * itemField.discount / 100} disabled /> </TableCell>
+                <TableCell  scope="row" style={{width: '40%' }}> <InputBase style={{width: '100%' , fontSize: '1.15rem'}} outline="none" sx={{ ml: 1, flex: 1 }} type="text" name="itemName" onChange={e => handleChange(index, e)} value={itemField.itemName} placeholder="Item name or description" /> </TableCell>
+                <TableCell align="right"> <InputBase style={{ fontSize: '1.15rem' }} sx={{ ml: 1, flex: 1 }} type="number" name="quantity" onChange={e => handleChange(index, e)} value={itemField.quantity} placeholder="0" /> </TableCell>
+                <TableCell align="right"> <InputBase style={{ fontSize: '1.15rem' }} sx={{ ml: 1, flex: 1 }} type="number" name="unitPrice" onChange={e => handleChange(index, e)} value={itemField.unitPrice} placeholder="0" /> </TableCell>
+                <TableCell align="right"> <InputBase style={{ fontSize: '1.15rem' }} sx={{ ml: 1, flex: 1 }} type="number" name="discount"  onChange={e => handleChange(index, e)} value={itemField.discount} placeholder="0" /> </TableCell>
+                <TableCell align="right"> <InputBase style={{ fontSize: '1.15rem' }} sx={{ ml: 1, flex: 1 }} type="number" name="amount" onChange={e => handleChange(index, e)}  value={(itemField.quantity * itemField.unitPrice) - (itemField.quantity * itemField.unitPrice) * itemField.discount / 100} disabled /> </TableCell>
                 <TableCell align="right"> 
                     <IconButton onClick={() =>handleRemoveField(index)}>
-                        <DeleteOutlineRoundedIcon style={{width: '20px', height: '20px'}}/>
+                        <DeleteOutlineRoundedIcon style={{width: '22px', height: '22px'}}/>
                     </IconButton>
                 </TableCell>
                 
@@ -425,7 +436,7 @@ const Invoice = () => {
         <div className={styles.toolBar}>
             <Container >
                 <Grid container >
-                    <Grid item style={{marginTop: '16px', marginRight: 10}}>
+                    <Grid item style={{marginTop: '16px', marginRight: 10 }}>
                         <TextField 
                             type="text" 
                             step="any" 
@@ -435,7 +446,8 @@ const Invoice = () => {
                             onChange={handleRates} 
                             placeholder="e.g 10" 
                             label="Tax Rates(%)"
-                            
+                            InputLabelProps={{ style: { fontSize: '1.3rem' } , shrink: true }}
+                            InputProps={{ style: { fontSize: '1.25rem' } }}
                         />
                     </Grid>
                     <Grid item style={{marginRight: 10}} >
@@ -445,6 +457,8 @@ const Invoice = () => {
                                 margin="normal"
                                 id="date-picker-dialog"
                                 label="Due date"
+                                InputLabelProps={{ style: { fontSize: '1.3rem' } }}
+                                InputProps={{ style: { fontSize: '1.25rem' } }}
                                 format="MM/dd/yyyy"
                                 value={selectedDate}
                                 onChange={handleDateChange}
@@ -462,6 +476,11 @@ const Invoice = () => {
                                     renderInput={(params) => <TextField {...params} 
                                     label="Select currency" 
                                     margin="normal" 
+                                    InputLabelProps={{ style: { fontSize: '1.25rem' } }}
+                                    InputProps={{
+                                              ...params.InputProps,
+                                              style: { fontSize: '1.25rem' }
+                                                }}
                                     />}
                                 value={currency.value}
                                 onChange={(event, value) => setCurrency(value.value)}
@@ -474,9 +493,9 @@ const Invoice = () => {
             </Container>
         </div>
             <div className={styles.note}>
-                <h4>Note/Payment Info</h4>
+                <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: 8 }}>Note/Payment Info</h4>
                 <textarea 
-                style={{border: 'solid 1px #d6d6d6', padding: '10px'}}
+                style={{border: 'solid 1px #d6d6d6', padding: '10px' ,fontSize: '1.2rem'}}
                     placeholder="Provide additional details or terms of service"
                     onChange={(e) => setInvoiceData({...invoiceData, notes: e.target.value})}
                     value={invoiceData.notes}
@@ -487,7 +506,7 @@ const Invoice = () => {
             <Grid container justifyContent="center">
             <Button
                 variant="contained"
-                style={{justifyContentContent: 'center'}}
+                style={{justifyContentContent: 'center',fontSize: '1.15rem', padding: '12px 30px', fontWeight: 600}}
                 type="submit"
                 color="primary"
                 size="large"
