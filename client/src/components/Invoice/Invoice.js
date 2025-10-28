@@ -288,6 +288,8 @@ const Invoice = () => {
                             display: 'inline-block',
                             backgroundColor: '#f4f4f4',
                             outline: '0px solid transparent',
+                            fontSize: '1.22rem'        
+                            
                             
                         }} 
                             contenteditable="true"
@@ -298,7 +300,7 @@ const Invoice = () => {
                         <span style={{width:'40px',
                             color: 'black',
                             padding: '15px',
-                            fontSize: '18px',
+                            fontSize: '16px',
                         }} 
                             contenteditable="false"> {invoiceData.invoiceNumber}</span>
                         <br/>
@@ -332,6 +334,13 @@ const Invoice = () => {
                                                 label="Select Customer" 
                                                 margin="normal" 
                                                 variant="outlined"
+                                                InputLabelProps={{
+                                                      style: { fontSize: '1.13rem' }
+                                                                 }}
+                                                InputProps={{
+                                                      ...params.InputProps,
+                                                      style: { fontSize: '1.13rem' }
+                                                            }}
                                                 />}
                                             value={clients?.name}
                                             onChange={(event, value) => setClient(value)}
@@ -344,7 +353,7 @@ const Invoice = () => {
                                 <Grid item style={{paddingBottom: '10px'}}>
                                     <Chip
                                         avatar={<Avatar>+</Avatar>}
-                                        label="New Customer"
+                                        label={<span style={{ fontSize: '1.15rem' }}>New Customer</span>}
                                         onClick={() => setOpen(true)}
                                         variant="outlined"
                                     />
@@ -365,7 +374,7 @@ const Invoice = () => {
                     </Typography>
                      <Typography variant="overline" style={{color: 'gray', fontSize: '1.03rem'}} gutterBottom>Due Date</Typography>
                     <Typography variant="body2" gutterBottom style={{fontSize: '1.08rem'}}>
-                        {selectedDate ? moment(selectedDate).format("MMM Do YYYY") : '27th Sep 2021'}
+                        {selectedDate ? moment(selectedDate).format("MMM Do YYYY") : '28th Oct 2025'}
                           </Typography>
                    <Typography variant="overline" gutterBottom style={{fontSize: '1.03rem'}}>Amount</Typography>
                        <Typography variant="h6" gutterBottom style={{fontSize: '1.23rem', fontWeight: 700}}>

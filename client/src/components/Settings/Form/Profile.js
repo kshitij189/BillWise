@@ -38,27 +38,27 @@ export default function ProfileDetail({ profiles }) {
         <List className={classes.root}>
           <ListItem >
                 <BusinessCenterIcon style={{marginRight: '20px', color: 'gray'}} />
-            <ListItemText primary={profiles?.businessName} secondary="" />
+            <ListItemText primary={profiles?.businessName}  primaryTypographyProps={{ style: { fontSize: "1.23rem", fontWeight: 400 } }} secondary="" />
           </ListItem>
 
           <ListItem >
             <LocationOnIcon style={{marginRight: '20px', color: 'gray'}} />
-            <ListItemText primary={profiles?.contactAddress} secondary="" />
+            <ListItemText primary={profiles?.contactAddress} primaryTypographyProps={{ style: { fontSize: "1.23rem", fontWeight: 400 } }} secondary="" />
           </ListItem>
 
           <ListItem >
             <PhoneInTalkIcon style={{marginRight: '20px', color: 'gray'}} />
-            <ListItemText primary={profiles?.phoneNumber} secondary="" />
+            <ListItemText primary={profiles?.phoneNumber} primaryTypographyProps={{ style: { fontSize: "1.23rem", fontWeight: 400 } }} secondary="" />
           </ListItem>
 
           <ListItem >
             <AlternateEmailIcon style={{marginRight: '20px', color: 'gray'}} />
-            <ListItemText primary={profiles?.email} secondary="" />
+            <ListItemText primary={profiles?.email} primaryTypographyProps={{ style: { fontSize: "1.23rem", fontWeight: 400 } }} secondary="" />
           </ListItem>
 
           <ListItem >
             <AccountBalanceWalletRoundedIcon style={{marginRight: '20px', color: 'gray'}} />
-            <ListItemText primary={profiles?.paymentDetails} secondary="" />
+            <ListItemText primary={profiles?.paymentDetails} primaryTypographyProps={{ style: { fontSize: "1.23rem", fontWeight: 400 } }} secondary="" />
           </ListItem>
 
         </List>

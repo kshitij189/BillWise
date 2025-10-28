@@ -41,38 +41,44 @@ const InvoiceType = ({ type, setType }) => {
 
   return (
     <div>
-      <p style={{marginBottom: '-10px', paddingTop: '10px', color: 'gray'}}>Select type</p>
+      <p style={{marginBottom: '-10px', paddingTop: '10px', color: 'gray', fontSize: '1.22rem', fontWeight: 500}}>Select type</p>
       <Button style={{lineSpacing: 1, fontSize: 35, fontWeight: 700}} onClick={handleClickOpen}>{type? type : 'Invoice'}</Button>
       <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
         {/* <DialogTitle>Fill the form</DialogTitle> */}
         <DialogContent>
           <div className={classes.container}>
             <FormControl className={classes.formControl}>
-              <InputLabel id="demo-dialog-select-label">Select Tpye</InputLabel>
+              <InputLabel id="demo-dialog-select-label" style={{ fontSize: '1.21rem' }}>Select Type</InputLabel>
               <Select
                 labelId="demo-dialog-select-label"
                 id="demo-dialog-select"
                 value={type}
                 onChange={handleChange}
-                input={<Input />}
+                input={<Input style={{ fontSize: '1.16rem' }} />}
+                style={{ fontSize: '1.16rem', minHeight: 48 }}
+                MenuProps={{
+                PaperProps: {
+                 style: { fontSize: '1.15rem' }
+                            }
+                         }}
               >
                 <MenuItem value="">
-                  <em>Select Type</em>
+                  <em style={{ fontSize: '1.10rem' }}>Select Type</em>
                 </MenuItem>
-                <MenuItem value="Invoice">Invoice</MenuItem>
-                <MenuItem value="Receipt">Receipt</MenuItem>
-                <MenuItem value="Estimate">Estimate</MenuItem>
-                <MenuItem value="Bill">Bill</MenuItem>
-                <MenuItem value="Quotation">Quotation</MenuItem>
+                <MenuItem value="Invoice" style={{ fontSize: '1.11rem' }}>Invoice</MenuItem>
+                <MenuItem value="Receipt" style={{ fontSize: '1.11rem' }}>Receipt</MenuItem>
+                <MenuItem value="Estimate" style={{ fontSize: '1.11rem' }}>Estimate</MenuItem>
+                <MenuItem value="Bill" style={{ fontSize: '1.11rem' }}>Bill</MenuItem>
+                <MenuItem value="Quotation" style={{ fontSize: '1.11rem' }}>Quotation</MenuItem>
               </Select>
             </FormControl>
           </div>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="primary" style={{ fontSize: '1.11rem' }}>
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="primary" style={{ fontSize: '1.11rem' }}>
             Ok
           </Button>
         </DialogActions>

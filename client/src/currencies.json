@@ -1,5 +1,12 @@
 [
-            
+             {
+                "countryCode": "IN",
+                "label": "India",
+                "value": "INR",
+                "population": "1173108018",
+                "capital": "New Delhi",
+                "continentName": "Asia"
+            },
             {
                 "countryCode": "NG",
                 "label": "Nigeria",
@@ -840,14 +847,7 @@
                 "capital": "Douglas",
                 "continentName": "Europe"
             },
-            {
-                "countryCode": "IN",
-                "label": "India",
-                "value": "INR",
-                "population": "1173108018",
-                "capital": "New Delhi",
-                "continentName": "Asia"
-            },
+           
             {
                 "countryCode": "IO",
                 "label": "British Indian Ocean Territory",
