@@ -143,7 +143,7 @@ const headerStyle = { borderBottom: 'none', textAlign: 'center'}
 
 
   return (
-    <div className={styles.pageLayout}>
+    <div className={styles.pageLayout} style={{ minHeight: '75vh' }}>
     <Container style={{width: '85%'}}>
         <TableContainer component={Paper} elevation={0}>
       <Table className={classes.table} aria-label="custom pagination table">

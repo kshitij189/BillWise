@@ -24,7 +24,7 @@ const Donut = ({ unpaid, paid, partial }) => {
 
     return (
         <div>
-            <ReactApexChart options={options} series={series} type="donut" width={450} />
+            <ReactApexChart options={options} series={series} type="donut" width={500} />
         </div>
     )
 }

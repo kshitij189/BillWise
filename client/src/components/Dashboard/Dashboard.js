@@ -207,7 +207,7 @@ const Dashboard = () => {
                                 <td><button>{record?.paidBy?.charAt(0)}</button></td>
                                 <td>{record.paidBy}</td>
                                 <td>{moment(record.datePaid).format('MMMM Do YYYY')}</td>
-                                <td><h3 style={{color: '#00A86B', fontSize: '14px'}} >{toCommas(record.amountPaid)}</h3></td>
+                                <td><h3 style={{color: '#00A86B', fontSize: '1.35rem'}} >{toCommas(record.amountPaid)}</h3></td>
                                 <td>{record.paymentMethod}</td>
                                 <td>{record.note}</td>
                             </tr>

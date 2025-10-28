@@ -1,5 +1,6 @@
 .pageLayout {
   margin-top: 60px;
+  min-height: 75vh;
 }
 
 /* Make the table container itself bigger */

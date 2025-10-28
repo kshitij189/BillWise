@@ -13,7 +13,7 @@ const Footer = () => {
 
     return (
         <footer>
-            <div className={styles.footerText}>
+            <div className={styles.footerText} style={{ fontSize: '1.18rem', fontWeight: 400 }}>
             © 2025 BillWise. All rights reserved.
             </div>
             {user && (

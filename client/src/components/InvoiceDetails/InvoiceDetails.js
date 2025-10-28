@@ -281,10 +281,12 @@ if(!invoice) {
                     )}
                     <Container>
                         <Typography variant="overline" style={{color: 'gray', paddingRight: '3px'}} gutterBottom>Bill to</Typography>
-                        <Typography variant="subtitle2" gutterBottom>{client.name}</Typography>
+                        <div className={styles.billToInfo}>
+                        <Typography variant="subtitle2"  gutterBottom>{client.name}</Typography>
                         <Typography variant="body2" >{client?.email}</Typography>
                         <Typography variant="body2" >{client?.phone}</Typography>
                         <Typography variant="body2">{client?.address}</Typography>
+                        </div>
                     </Container>
                 </Grid>
 
@@ -294,7 +296,7 @@ if(!invoice) {
                     <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Date</Typography>
                     <Typography variant="body2" gutterBottom>{moment().format("MMM Do YYYY")}</Typography>
                     <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Due Date</Typography>
-                    <Typography variant="body2" gutterBottom>{selectedDate? moment(selectedDate).format("MMM Do YYYY") : '27th Sep 2021'}</Typography>
+                    <Typography variant="body2" gutterBottom>{selectedDate? moment(selectedDate).format("MMM Do YYYY") : '27th Oct 2025'}</Typography>
                     <Typography variant="overline" gutterBottom>Amount</Typography>
                     <Typography variant="h6" gutterBottom>{currency} {toCommas(total)}</Typography>
                 </Grid>

@@ -5,8 +5,8 @@ export const Check =() => {
         <svg
             style={{color: '#81B443'}}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="28"
+            height="28"
             fill="none"
             stroke="currentColor"
             strokeLinecap="round"
@@ -28,8 +28,8 @@ export const Pie =() => {
         <svg
             style={{color: 'green'}}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="28"
+            height="28"
             fill="none"
             stroke="currentColor"
             strokeLinecap="round"
@@ -50,8 +50,8 @@ export const Bag =() => {
         <svg
             style={{color: '#1976d2'}}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="28"
+            height="28"
             fill="none"
             stroke="currentColor"
             strokeLinecap="round"
@@ -75,8 +75,8 @@ export const Card =() => {
         <svg
             style={{color: 'green'}}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="28"
+            height="28"
             fill="none"
             stroke="currentColor"
             strokeLinecap="round"
@@ -98,8 +98,8 @@ export const Clock =() => {
         <svg
         style={{color: 'red'}}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="28"
+      height="28"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -119,8 +119,8 @@ export const Frown = () => {
         <svg
         style={{color: 'red'}}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="28"
+      height="28"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"

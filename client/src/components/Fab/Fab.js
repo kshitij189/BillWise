@@ -28,7 +28,7 @@ const FabButton = () => {
 
             {location.pathname !== '/invoice' && (
               <Action
-                  text="New Invoice"
+                  text={<span style={{ fontSize: '1.18rem' }}>New Invoice</span>}
                   // onClick={() =>  history.push(`/invoice`)}
                   onClick={() => window.location.href='/invoice'}
                 >
@@ -37,7 +37,7 @@ const FabButton = () => {
             )}
 
             <Action
-                text="New Customer"
+                text={<span style={{ fontSize: '1.18rem' }}>New Customer</span>}
                 onClick={() => setOpen((prev) => !prev)}
               >
                 <PersonAddIcon />

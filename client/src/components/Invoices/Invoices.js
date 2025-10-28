@@ -194,7 +194,7 @@ const Invoices = () => {
   }
   
   return (
-    <div>
+    <div style={{ minHeight: '75vh' }}>
     <Container style={{width: '85%', paddingTop: '70px', paddingBottom: '50px', border: 'none'}} >
         <TableContainer component={Paper} elevation={0}>
       <Table className={classes.table} aria-label="custom pagination table">
@@ -202,7 +202,7 @@ const Invoices = () => {
       <TableHead>
           <TableRow>
             <TableCell style={headerStyle}>Number</TableCell>
-            <TableCell style={headerStyle}>Client</TableCell>
+            <TableCell style={headerStyle} >Client</TableCell>
             <TableCell style={headerStyle}>Amount</TableCell>
             <TableCell style={headerStyle}>Due Date</TableCell>
             <TableCell style={headerStyle}>Status</TableCell>
@@ -218,7 +218,7 @@ const Invoices = () => {
           ).map((row) => (
             <TableRow key={row._id} style={{cursor: 'pointer'}} >
                 <TableCell style={tableStyle} onClick={() => openInvoice(row._id)}> {row.invoiceNumber} </TableCell>
-                <TableCell  style={tableStyle} onClick={() => openInvoice(row._id)} > {row.client.name} </TableCell>
+                <TableCell  style={tableStyle} onClick={() => openInvoice(row._id)} >  <span style={{ fontWeight: 'bold' }}>{row.client.name}</span> </TableCell>
                 <TableCell style={tableStyle} onClick={() => openInvoice(row._id)} >{row.currency} {row.total? toCommas(row.total): row.total} </TableCell>
                 <TableCell style={tableStyle} onClick={() => openInvoice(row._id)} > {moment(row.dueDate).fromNow()} </TableCell>
                 <TableCell style={tableStyle} onClick={() => openInvoice(row._id)} > <button style={checkStatus(row.status)}>{row.status}</button></TableCell>

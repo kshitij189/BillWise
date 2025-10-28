@@ -41,11 +41,34 @@ function Chart({ paymentHistory }) {
     xaxis: {
       type: "datetime", 
       categories: paymentDates,
+      labels: {
+      style: {
+        fontSize: '1.2rem',    // Increase this for bigger x-axis labels
+        fontWeight: 600,
+      }}
     },
+    yaxis: {
+    labels: {
+      style: {
+        fontSize: '1.2rem',   // Make y-axis tick numbers larger
+        fontWeight: 600,
+      }
+    },
+    title: {
+      style: {
+        fontSize: '1.1rem',
+        fontWeight: 700,
+      }
+    }
+  },
     tooltip: {
       x: {
         format: "dd MMM yyyy",
       },
+       style: {
+      fontSize: '1rem',   // Make tooltip text much bigger
+      fontWeight: 500,
+    }
     },
     colors: ["#1976d2"],
   };
@@ -55,11 +78,12 @@ function Chart({ paymentHistory }) {
       style={{
         backgroundColor: "white",
         textAlign: "center",
-        width: "90%",
+        width: "98%",
         margin: "10px auto",
-        padding: "10px",
+        padding: "24px",
         borderRadius: "10px",
         boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
+        minHeight: "380px"
       }}
     >
       <br />
@@ -67,7 +91,7 @@ function Chart({ paymentHistory }) {
         options={options}
         series={series}
         type="bar"
-        height={300}
+        height={400}
       />
     </div>
   );
