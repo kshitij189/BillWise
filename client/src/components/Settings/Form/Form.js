@@ -93,17 +93,19 @@ const Settings = () => {
           <Grid container spacing={2}>
             <Uploader form={form} setForm={setForm} />
             <Input name="email" label="Email Address" handleChange={handleChange} type="email" half value={form?.email} InputProps={{ style: { fontSize: '1.15rem', padding: '14px 10px' } }}
-                 InputLabelProps={{ style: { fontSize: '1.25rem' } }} />
+                 InputLabelProps={{ style: { fontSize: '1.27rem' } }} />
             <Input name="phoneNumber" label="Phone Number" handleChange={handleChange} type="text" half value={form?.phoneNumber} InputProps={{ style: { fontSize: '1.15rem', padding: '14px 10px' } }}
-                 InputLabelProps={{ style: { fontSize: '1.25rem' } }}/>
+                 InputLabelProps={{ style: { fontSize: '1.27rem' } }}/>
             <Input name="businessName" label="Business Name" handleChange={handleChange} type="text" value={form?.businessName} InputProps={{ style: { fontSize: '1.15rem', padding: '14px 10px' } }}
-                 InputLabelProps={{ style: { fontSize: '1.25rem' } }}/>
+                 InputLabelProps={{ style: { fontSize: '1.27rem' } }}/>
             <Input name="contactAddress" label="Contact Address" handleChange={handleChange} type="text" value={form?.contactAddress}  InputProps={{ style: { fontSize: '1.15rem', padding: '14px 10px' } }}
-                 InputLabelProps={{ style: { fontSize: '1.25rem' } }}/>
+                 InputLabelProps={{ style: { fontSize: '1.27rem' } }}/>
             <Input name="paymentDetails" label="Payment Details/Notes" handleChange={handleChange} type="text" multiline rows="4" value={form?.paymentDetails} InputProps={{ style: { fontSize: '1.15rem', padding: '14px 10px' } }}
-                 InputLabelProps={{ style: { fontSize: '1.25rem' } }}/>
+                 InputLabelProps={{ style: { fontSize: '1.27rem' } }}/>
           </Grid>
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} style={{
+                 fontSize: '1.18rem',fontWeight: 600,padding: '18px 0'
+                                                                     }}>
            Update Settings
           </Button>
           <Grid container justifyContent="flex-end">

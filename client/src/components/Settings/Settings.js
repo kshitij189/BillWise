@@ -20,7 +20,7 @@ const Settings = () => {
         <section className={styles.hero}>
             <h1>Profile Settings</h1>
             <div className={styles.paragraph}>
-                <p>Edit/ update your business profile</p>
+                <p >Edit/ update your business profile</p>
             </div>
         </section>
         <section className={styles.stat}>

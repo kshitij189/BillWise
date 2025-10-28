@@ -19,6 +19,7 @@
   font-size: 50px;
   line-height: 50px;
   text-align: center;
+  
 }
 
 .paragraph {
@@ -26,6 +27,8 @@
   text-align: center;
   line-height: 20px;
   color: gray;
+  font-size: 1.25rem;
+  margin-bottom: -1.3em;
 }
 
 .imgContainer {
