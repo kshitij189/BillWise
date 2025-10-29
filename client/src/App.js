@@ -1,6 +1,3 @@
-
-
-
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import SnackbarProvider from 'react-simple-snackbar'
@@ -18,35 +15,49 @@ import Settings from './components/Settings/Settings';
 import Forgot from './components/Password/Forgot'
 import Reset from './components/Password/Reset'
 
+// MATERIAL-UI THEME IMPORTS
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  typography: {
+    fontSize: 16,
+    h5: { fontSize: '2rem', fontWeight: 600 },
+    body1: { fontSize: '1.15rem' },
+    body2: { fontSize: '1.13rem' },
+    button: { fontSize: '1.13rem' },
+  }
+});
+
 function App() {
 
   const user = JSON.parse(localStorage.getItem('profile'))
 
   return (
-    <div style={{ width: '100%', maxWidth: '100%', margin: 0, padding: 0 }}>
-      <BrowserRouter>
-      <SnackbarProvider>
-     {user && <NavBar />} 
-      <Header />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/invoice" exact component={Invoice} />
-          <Route path="/edit/invoice/:id" exact component={Invoice} />
-          <Route path="/invoice/:id" exact component={InvoiceDetails} />
-          <Route path="/invoices" exact component={Invoices} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/settings" exact component={Settings} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/customers" exact component={ClientList} />
-          <Route path="/forgot" exact component={Forgot} />
-          <Route path="/reset/:token" exact component={Reset} />
-          <Redirect exact from="/new-invoice" to="/invoice" />
-
-        </Switch>
-        <Footer />
-        </SnackbarProvider>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div style={{ width: '100%', maxWidth: '100%', margin: 0, padding: 0 }}>
+        <BrowserRouter>
+          <SnackbarProvider>
+            {user && <NavBar />}
+            <Header />
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/invoice" exact component={Invoice} />
+              <Route path="/edit/invoice/:id" exact component={Invoice} />
+              <Route path="/invoice/:id" exact component={InvoiceDetails} />
+              <Route path="/invoices" exact component={Invoices} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/settings" exact component={Settings} />
+              <Route path="/dashboard" exact component={Dashboard} />
+              <Route path="/customers" exact component={ClientList} />
+              <Route path="/forgot" exact component={Forgot} />
+              <Route path="/reset/:token" exact component={Reset} />
+              <Redirect exact from="/new-invoice" to="/invoice" />
+            </Switch>
+            <Footer />
+          </SnackbarProvider>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 

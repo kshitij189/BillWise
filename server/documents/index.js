@@ -154,8 +154,8 @@ export default function ({
         <div>${moment(date).format('ll')}</div>
         <div style="font-size:11px; color:#888; margin-top:9px">DUE DATE</div>
         <div>${moment(dueDate).format('ll')}</div>
-        <div style="font-size:11px; color:#888; margin-top:9px">AMOUNT</div>
-        <div class="amount-big">${total}</div>
+        <div style="font-size:11px; color:#888; margin-top:9px">AMOUNT DUE</div>
+        <div class="amount-big">${balanceDue}</div>
       </td>
     </tr>
   </table>
@@ -182,7 +182,7 @@ export default function ({
   <table class="summary">
     <tr><th>Invoice Summary</th><td></td></tr>
     <tr><th>Subtotal:</th><td>${subTotal}</td></tr>
-    <tr><th>VAT(8%):</th><td>${vat}</td></tr>
+    <tr><th>VAT(8%):</th><td>${(vat)}</td></tr>
     <tr><th>Total</th><td>${total}</td></tr>
     <tr><th>Paid</th><td>INR ${totalAmountReceived}</td></tr>
     <tr><th>Balance</th><td>INR ${balanceDue}</td></tr>

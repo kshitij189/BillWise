@@ -85,7 +85,8 @@
   background-color: white;
   color: rgb(24, 24, 24);
   cursor: pointer;
-  font-size: 15px;
+  font-size: 1.18rem !important;
+  font-weight: 600;
   outline: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -103,7 +104,7 @@
   background-color: white;
   color: rgb(24, 24, 24);
   cursor: pointer;
-  font-size: 15px;
+  font-size: 1.13rem !important;
   outline: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -131,6 +132,8 @@
 .switchBtn:hover {
   background-color: rgb(245, 245, 245);
 }
+
+
 
 
 @media screen and (max-width: 992px) {

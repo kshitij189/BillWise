@@ -152,7 +152,7 @@ hr {
           <img class="footer-logo" src="https://i.postimg.cc/hGZKzdkS/logo.png" alt="arc-invoice"/>
         </a>
       </div>
-    <p style="text-align: center">Make beautiful invoice for free at accountill.com</p>
+    <p style="text-align: center">Make beautiful invoice for free at BillWise</p>
     </div>
     </body>
 </html>`
