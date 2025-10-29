@@ -204,35 +204,36 @@ if(!invoice) {
            {invoice?.creator?.includes(user?.result?._id || user?.result?.googleId) && (
             <div className={styles.buttons}>
                   <ProgressButton 
+                    style={{ fontSize: '1.3rem' , padding: '10px 28px' }}
                     onClick={sendPdf} 
                     state={sendStatus}
-                    onSuccess={()=> openSnackbar("Invoice sent successfully")}
+                    onSuccess={()=> openSnackbar("Invoice sent successfully")} 
                   >
-                  Send to Customer
+                  <span className={styles.bigBtnText}>Send to Customer</span>
                   </ProgressButton>
               
                 <ProgressButton 
                   onClick={createAndDownloadPdf} 
-                  state={downloadStatus}>
-                  Download PDF
+                  state={downloadStatus} style={{ fontSize: '1.13rem', padding: '10px 28px' }}>
+                  <span className={styles.bigBtnText}>Download PDF</span>
                 </ProgressButton>
 
                 <button 
                 className={styles.btn}  
-                onClick={() => editInvoice(invoiceData._id)}
+                onClick={() => editInvoice(invoiceData._id)} style={{ fontSize: '1.13rem', padding: '10px 28px' }}
                 > 
                 <BorderColorIcon style={iconSize} 
                 />
-                Edit Invoice
+                <span className={styles.bigBtnText}>Edit Invoice</span>
                 </button>
 
                 <button 
                   // disabled={status === 'Paid' ? true : false}
                   className={styles.btn} 
-                  onClick={() => setOpen((prev) => !prev)}> 
-                  <MonetizationOnIcon style={iconSize} 
+                  onClick={() => setOpen((prev) => !prev)} style={{ fontSize: '1.13rem', padding: '10px 28px' }}> 
+                  <MonetizationOnIcon style={iconSize}  
                 /> 
-                Record Payment
+                <span className={styles.bigBtnText}>Record Payment</span>
                 </button>
             </div>
              )}
@@ -261,8 +262,8 @@ if(!invoice) {
             )}
                 <Grid item style={{marginRight: 40, textAlign: 'right'}}>
                     <Typography style={{lineSpacing: 1, fontSize: 45, fontWeight: 700, color: 'gray'}} >{Number(total - totalAmountReceived) <= 0 ? 'Receipt' : type}</Typography>
-                    <Typography variant="overline" style={{color: 'gray'}} >No: </Typography>
-                    <Typography variant="body2">{invoiceData?.invoiceNumber}</Typography>
+                    <Typography variant="overline" style={{color: 'gray', fontSize: '1rem'}} >No: </Typography>
+                    <Typography variant="body2" style={{ fontSize: '1rem'}}>{invoiceData?.invoiceNumber}</Typography>
                 </Grid>
             </Grid >
         </Container>
@@ -272,33 +273,33 @@ if(!invoice) {
                 <Grid item>
                     {invoice?.creator?.includes(user?.result._id) && (
                       <Container style={{marginBottom: '20px'}}>
-                        <Typography variant="overline" style={{color: 'gray'}} gutterBottom>From</Typography>
-                        <Typography variant="subtitle2">{invoice?.businessDetails?.data?.data?.businessName}</Typography>
-                        <Typography variant="body2">{invoice?.businessDetails?.data?.data?.email}</Typography>
-                        <Typography variant="body2">{invoice?.businessDetails?.data?.data?.phoneNumber}</Typography>
-                        <Typography variant="body2" gutterBottom>{invoice?.businessDetails?.data?.data?.address}</Typography>
+                        <Typography variant="overline" style={{color: 'gray',fontSize: '1.12rem'}} gutterBottom>From</Typography>
+                        <Typography variant="subtitle2" style={{ fontSize: '1.12rem' }}>{invoice?.businessDetails?.data?.data?.businessName}</Typography>
+                        <Typography variant="body2" style={{ fontSize: '1.12rem' }}>{invoice?.businessDetails?.data?.data?.email}</Typography>
+                        <Typography variant="body2" style={{ fontSize: '1.12rem' }}>{invoice?.businessDetails?.data?.data?.phoneNumber}</Typography>
+                        <Typography variant="body2" gutterBottom style={{ fontSize: '1.12rem' }}>{invoice?.businessDetails?.data?.data?.address}</Typography>
                       </Container>
                     )}
                     <Container>
-                        <Typography variant="overline" style={{color: 'gray', paddingRight: '3px'}} gutterBottom>Bill to</Typography>
+                        <Typography variant="overline" style={{color: 'gray', paddingRight: '3px',fontSize: '1.12rem'}} gutterBottom>Bill to</Typography>
                         <div className={styles.billToInfo}>
-                        <Typography variant="subtitle2"  gutterBottom>{client.name}</Typography>
-                        <Typography variant="body2" >{client?.email}</Typography>
-                        <Typography variant="body2" >{client?.phone}</Typography>
-                        <Typography variant="body2">{client?.address}</Typography>
+                        <Typography variant="subtitle2"  gutterBottom style={{ fontSize: '1.35rem', fontWeight: 700 }}>{client.name}</Typography>
+                        <Typography variant="body1" style={{ fontSize: '1.15rem' }}>{client?.email}</Typography>
+                        <Typography variant="body1" style={{ fontSize: '1.15rem' }}>{client?.phone}</Typography>
+                        <Typography variant="body1"style={{ fontSize: '1.15rem' }}>{client?.address}</Typography>
                         </div>
                     </Container>
                 </Grid>
 
                 <Grid item style={{marginRight: 20, textAlign: 'right'}}>
-                    <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Status</Typography>
-                    <Typography variant="h6" gutterBottom style={{color: checkStatus()}}>{totalAmountReceived >= total ? 'Paid':status}</Typography>
-                    <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Date</Typography>
-                    <Typography variant="body2" gutterBottom>{moment().format("MMM Do YYYY")}</Typography>
-                    <Typography variant="overline" style={{color: 'gray'}} gutterBottom>Due Date</Typography>
-                    <Typography variant="body2" gutterBottom>{selectedDate? moment(selectedDate).format("MMM Do YYYY") : '27th Oct 2025'}</Typography>
-                    <Typography variant="overline" gutterBottom>Amount</Typography>
-                    <Typography variant="h6" gutterBottom>{currency} {toCommas(total)}</Typography>
+                    <Typography variant="overline" style={{color: 'gray', fontSize: '1rem'}} gutterBottom>Status</Typography>
+                    <Typography variant="h6" gutterBottom style={{color: checkStatus(), fontSize: '1.3rem', fontWeight: 700}}>{totalAmountReceived >= total ? 'Paid':status}</Typography>
+                    <Typography variant="overline" style={{color: 'gray', fontSize: '1rem'}} gutterBottom>Date</Typography>
+                    <Typography variant="body2" gutterBottom style={{ fontSize: '1.12rem' }}>{moment().format("MMM Do YYYY")}</Typography>
+                    <Typography variant="overline" style={{color: 'gray', fontSize: '1rem'}} gutterBottom>Due Date</Typography>
+                    <Typography variant="body2" gutterBottom style={{ fontSize: '1.12rem' }}>{selectedDate? moment(selectedDate).format("MMM Do YYYY") : '27th Oct 2025'}</Typography>
+                    <Typography variant="overline" gutterBottom style={{color: 'gray', fontSize: '1rem'}}>Amount</Typography>
+                    <Typography variant="h6" gutterBottom style={{ fontSize: '1.3rem', fontWeight: 700 }}>{currency} {toCommas(total)}</Typography>
                 </Grid>
             </Grid>
         </Container>
@@ -306,15 +307,15 @@ if(!invoice) {
         <form>
             <div>
 
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} style={{ marginTop: '22px', marginBottom: '5px' }}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Item</TableCell>
-            <TableCell >Qty</TableCell>
-            <TableCell>Price</TableCell>
-            <TableCell >Disc(%)</TableCell>
-            <TableCell >Amount</TableCell>
+            <TableCell style={{ fontSize: '1.1rem', fontWeight: 700 }}>Item</TableCell>
+            <TableCell style={{ fontSize: '1.1rem' }}>Qty</TableCell>
+            <TableCell style={{ fontSize: '1.1rem' }}>Price</TableCell>
+            <TableCell style={{ fontSize: '1.1rem' }}>Disc(%)</TableCell>
+            <TableCell style={{ fontSize: '1.1rem' }}>Amount</TableCell>
            
           </TableRow>
         </TableHead>
@@ -358,14 +359,14 @@ if(!invoice) {
 
                     <div className={styles.summaryItem}>
                         <p>Balance</p>
-                        <h4 style={{color: "black", fontSize: "18px", lineHeight: "8px"}}>{currency} {toCommas(total - totalAmountReceived)}</h4>
+                        <h4 style={{color: "black", fontSize: "18px", lineHeight: "8px"}}>{currency} {toCommas((total - totalAmountReceived).toFixed(2))}</h4>
                     </div>
                     
                 </div>
 
                 <div className={styles.note}>
-                    <h4 style={{marginLeft: '-10px'}}>Note/Payment Info</h4>
-                    <p style={{fontSize: '14px'}}>{invoiceData.notes}</p>
+                    <h4 style={{marginLeft: '-10px', fontSize: '1.2rem', fontWeight: 700}}>Note/Payment Info</h4>
+                    <p style={{fontSize: '1.16rem'}}>{invoiceData.notes}</p>
                 </div>
 
             {/* <button className={styles.submitButton} type="submit">Save and continue</button> */}

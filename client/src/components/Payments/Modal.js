@@ -90,7 +90,7 @@ const Modal = ({ setOpen, open, invoice }) => {
 
     useEffect(() => {
       if(invoice) {
-        setPayment({...payment, amountPaid: Number(invoice.total) - Number(invoice.totalAmountReceived), paidBy: invoice?.client?.name})
+        setPayment({...payment, amountPaid: "", paidBy: invoice?.client?.name})
       }
     },[invoice])
     
@@ -163,8 +163,16 @@ const Modal = ({ setOpen, open, invoice }) => {
                 type="number" 
                 name="amountPaid" 
                 label="Amount Paid" 
+                size="medium" // Or remove entirely; "medium" is default and offers more height
+                 InputProps={{
+                     style: { fontSize: '1.22rem', height: 60 }
+                      }}
+                 InputLabelProps={{
+                 style: { fontSize: '1.14rem' }
+              }}
+  
                 fullWidth 
-                style={{padding: 10}} 
+                style={{padding: 10,margin: '18px 0'}} 
                 variant="outlined" 
                 onChange={(e) => setPayment({...payment, amountPaid: e.target.value})}
                 value={payment.amountPaid}
@@ -186,8 +194,14 @@ const Modal = ({ setOpen, open, invoice }) => {
                 type="text" 
                 name="note" 
                 label="Note" 
+                InputProps={{
+                 style: { fontSize: '1.22rem', height: 55 }
+                            }}
+                     InputLabelProps={{
+                    style: { fontSize: '1.14rem' }
+                                       }}
                 fullWidth 
-                style={{padding: 10}} 
+                style={{padding: 10,margin: '18px 0'}} 
                 variant="outlined" 
                 onChange={(e) => setPayment({...payment, note: e.target.value})}
                 value={payment.note}
@@ -195,7 +209,8 @@ const Modal = ({ setOpen, open, invoice }) => {
 
             </DialogContent>
             <DialogActions>
-            <Button autoFocus onClick={handleSubmitPayment} variant="contained" style={{marginRight: '25px'}} >
+            <Button autoFocus onClick={handleSubmitPayment} variant="contained" style={{
+                  marginRight: '25px',fontSize: '1.21rem',minHeight: 54,padding: '10px 30px',fontWeight: 400}} >
                 Save Record
             </Button>
             </DialogActions>

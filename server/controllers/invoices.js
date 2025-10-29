@@ -1,5 +1,4 @@
 
-//Copyright (c) 2022 Panshak Solomon
 
 import express from 'express'
 import mongoose from 'mongoose'

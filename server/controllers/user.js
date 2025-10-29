@@ -104,7 +104,7 @@ export const forgotPassword = (req, res) => {
         .then(() => {
           transporter.sendMail({
             to: user.email,
-            from: "Accountill <hello@accountill.com>",
+            from: "BillWise <hello@billwise.com>",
             subject: "Password reset request",
             html: `
               <p>You requested a password reset from Arc Invoicing.</p>

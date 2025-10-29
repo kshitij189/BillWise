@@ -17,19 +17,26 @@ export default function MaterialUIPickers({ setSelectedDate, selectedDate}) {
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justifyContent="space-around" style={{width: '97%', paddingLeft: '10px', paddingBottom: '15px'}}>
+      <Grid container justifyContent="space-around" style={{width: '97%', paddingLeft: '10px', paddingBottom: '4px'}}>
         <KeyboardDatePicker
           fullWidth
           disableToolbar
           variant="outline"
           format="MM/dd/yyyy"
-          margin="normal"
+          
           id="date-picker-inline"
           label="Date paid"
           value={selectedDate}
           onChange={handleDateChange}
+          InputProps={{
+           style: { fontSize: '1.18rem', height: 35 }
+                      }}
+           InputLabelProps={{
+          style: { fontSize: '1.15rem' }
+                            }}
           KeyboardButtonProps={{
             'aria-label': 'change date',
+            style: { fontSize: '2rem' }
           }}
         />
       </Grid>
