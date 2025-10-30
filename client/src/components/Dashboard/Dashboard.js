@@ -78,12 +78,37 @@ const Dashboard = () => {
       }
 
       if(invoices.length === 0) {
-        return  <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', paddingTop: '20px'}}>
-            {/* <Spinner /> */}
-          <Empty />
-        <p style={{padding: '40px', color: 'gray'}}>Nothing to display. Click the plus icon to start creating</p>
-        </div>
-      }
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        paddingTop: '60px', // Increased padding for more vertical space
+        minHeight: '65vh'   // Ensures minimum height for more push
+      }}
+    >
+      {/* Enlarged Empty illustration */}
+      <div style={{ width: 400, maxWidth: '90%', marginBottom: '32px' }}>
+        <Empty style={{ width: '100%', height: 'auto' }} />
+      </div>
+      {/* Larger text */}
+      <p
+        style={{
+          padding: '32px',
+          color: 'gray',
+          fontSize: '1.65rem',
+          fontWeight: 450,
+          textAlign: 'center'
+        }}
+      >
+        Nothing to display. Click the plus icon to start creating
+      </p>
+    </div>
+  );
+}
+
 
       
     return (

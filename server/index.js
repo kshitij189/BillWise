@@ -63,7 +63,7 @@ app.post('/send-pdf', async (req, res) => {
     const pdfPath = await generatePDF(pdfTemplate(req.body));
 
     await transporter.sendMail({
-      from: `BillWise <hello@billwise.com>`,
+      from: `BillWise <kshitij@billwise.com>`,
       to: email,
       replyTo: company.email,
       subject: `Invoice from ${company.businessName || company.name}`,

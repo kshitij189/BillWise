@@ -148,9 +148,9 @@ hr {
         </div>
         
       <div class"footer">
-          <a href="https://accountill.com">
-          <img class="footer-logo" src="https://i.postimg.cc/hGZKzdkS/logo.png" alt="arc-invoice"/>
-        </a>
+          
+          <img class="footer-logo" src="https://res.cloudinary.com/dgltfenoq/image/upload/v1761238127/BillWise_vfmobj.png" alt="BillWise-Invoice"/>
+        
       </div>
     <p style="text-align: center">Make beautiful invoice for free at BillWise</p>
     </div>

@@ -113,26 +113,26 @@ img {
 <body>
 <section  class="header">
         <div>
-           <img src="https://i.postimg.cc/8PyXvBpC/Salesforce-com-logo-svg.png" />
+           <img src="https://res.cloudinary.com/dgltfenoq/image/upload/v1761238127/BillWise_vfmobj.png" />
         </div>
 </section>
 <section class="address">
     <div class="contact">
           <div>
-          <h4>SALESFORCE</h4>
-          <p>payments@salesforce.com</p>
-          <p>+009 353 1440 3500</p>
-          <p>415 Mission Street Suite 300</p>
-          <p>San Francisco, CA 94105</p>
+          <h4>BILLWISE</h4>
+          <p>payments@billwise.com</p>
+          <p>+91 9876543210</p>
+          <p>Cybercity ,Manasar</p>
+          <p>Gurgaon, HR 301406</p>
       </div>
 
       <div>
           <p class="title">Bill to:</p>
-          <h4>Panshak Solomon</h4>
-          <p>ipanshak@gmail.com</p>
-          <p>+234 803 057 3601</p>
-          <p>A.P. Leventis Ornithological Research</p>
-          <p>Institute, Jos</p>
+          <h4>Kshitij Tripathi</h4>
+          <p>kshitij@gmail.com</p>
+          <p>+91 9876543210</p>
+          <p>IIIT Nagpur</p>
+          <p>Institute, Nagpur</p>
       </div>
     </div>
 
@@ -144,9 +144,9 @@ img {
         <p class="title">Status</p>
         <h3>Paid</h3>
         <p class="title">Date</p>
-        <p>1st Oct, 2021</p>
+        <p>28st Oct, 2025</p>
         <p class="title">Amount</p>
-        <h3>US$84.00</h3>
+        <h3>INR 2700.00</h3>
     </div>
 
 
@@ -160,10 +160,10 @@ img {
     <th style="text-align: center">Amount</th>
   </tr>
   <tr>
-    <td>Heroku single Dyno (Hobby) </td>
+    <td>Consulting Services </td>
     <td>1</td>
-    <td>84.00</td>
-    <td style="text-align: center">84.00</td>
+    <td>2700.00</td>
+    <td style="text-align: center">2700.00</td>
   </tr>
 
 </table>
@@ -176,17 +176,17 @@ img {
         </tr>
         <tr>
           <td>Total</td>
-          <td style="text-align: center">US$84.00</td>
+          <td style="text-align: center">INR 2700.00</td>
         </tr>
 
         <tr>
             <td>Payment made</td>
-            <td style="text-align: center">US$84.00</td>
+            <td style="text-align: center">INR 2700.00</td>
           </tr>
 
         <tr>
             <td>Balance</td>
-            <td ><h3 style="line-height: 5px; text-align: center">US$0.00</h3></td>
+            <td ><h3 style="line-height: 5px; text-align: center">INR 0.00</h3></td>
           </tr>
         
       </table>

@@ -48,12 +48,31 @@ useEffect(() => {
   }
 
   if(clients.length === 0) {
-    return  <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', paddingTop: '20px', margin: '80px'}}>
-      <NoData />
-    <p style={{padding: '40px', color: 'gray', textAlign: 'center'}}>No customers yet. Click the plus icon to add customer</p>
-  
+  return (
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      paddingTop: '60px',
+      minHeight: '65vh'
+    }}>
+      <div style={{ width: 350, maxWidth: '90%', marginBottom: '24px' }}>
+        <NoData style={{ width: '100%', height: 'auto' }} />
+      </div>
+      <p style={{
+        padding: '32px',
+        color: 'gray',
+        fontSize: '1.5rem',
+        fontWeight: 450,
+        textAlign: 'center'
+      }}>
+        No customers yet. Click the plus icon to add customer
+      </p>
     </div>
-  }
+  );
+}
+
 
     return (
         <div>

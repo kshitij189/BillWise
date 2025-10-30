@@ -102,13 +102,15 @@ export const forgotPassword = (req, res) => {
       user
         .save()
         .then(() => {
+          const resetUrl = `${process.env.REACT_APP_URL}/reset/${token}`;
+
           transporter.sendMail({
             to: user.email,
-            from: "BillWise <hello@billwise.com>",
+            from: "BillWise <kshitij@billwise.com>",
             subject: "Password reset request",
             html: `
-              <p>You requested a password reset from Arc Invoicing.</p>
-              <h5>Please click this <a href="https://accountill.com/reset/${token}">link</a> to reset your password</h5>
+              <p>You requested a password reset from BillWise.</p>
+              <h5>Please click this <a href="${resetUrl}">link</a> to reset your password</h5>
               <p>If this was a mistake, just ignore this email.</p>
             `,
           });

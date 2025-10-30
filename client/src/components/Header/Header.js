@@ -116,8 +116,18 @@ const Header = () => {
 
     if(!user) return (
         <div className={styles.header2}>
-         <img style={{width: '180px', cursor: 'pointer'}} onClick={()=> history.push('/')} src="https://res.cloudinary.com/dgltfenoq/image/upload/v1761421338/Screenshot_2025-10-26_010737_tsl1ox.png" alt="arc-invoice" />
-        <button onClick={()=> history.push('/login')} className={styles.login}>Get started</button>
+         <span
+  className={styles.billwiseText}
+  onClick={() => history.push('/')}
+  style={{ cursor: 'pointer' }}
+>
+  BillWise
+</span>
+<button onClick={() => history.push('/login')} className={styles.login}>
+  Get started
+</button>
+
+        
         </div>
     )
     return (

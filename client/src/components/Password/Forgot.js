@@ -27,12 +27,20 @@ const Forgot = () => {
   if(user) history.push('/dashboard')
 
   return (
-    <div style={{paddingTop: '100px', paddingBottom: '100px'}}>
+    <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    minHeight: '100vh',
+    background: '#f7f7f7' // Optional: subtle background like your empty/dashboard
+  }}>
         <Container component="main" maxWidth="xs">
-            <Paper className={classes.paper} variant="outlined">
+            <Paper className={classes.paper} variant="outlined" style={{width: 500,      minHeight: 420,  padding: 50,     display: 'flex',flexDirection: 'column', justifyContent: 'center'
+  }}>
               {step === 0 && (
                 <div>
-                <Typography variant="h6" gutter="5">Please enter your email address</Typography>
+                <Typography variant="h6" gutter="5" align="center" style={{ width: '100%' }}>Please enter your email address</Typography>
                 <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
                 <Grid container spacing={2}>
                 <Field name="email" label="Email Address" handleChange={handleChange} type="email" />
@@ -46,10 +54,10 @@ const Forgot = () => {
                   <div>
                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}> <i className="fas fa-check-circle" style={{fontSize: '55px', color: '#3e6947'}}></i></div>
                     <br/>
-                    <p>A password reset link has been sent to your email. Please follow the link to reset your password</p>
+                    <p style={{ marginBottom: 24, fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.5 }}>A password reset link has been sent to your email. Please follow the link to reset your password</p>
                     <div className={styles.buttons}>
-                        <button className={styles.button} onClick={() =>history.push('/')}>Back to home</button>
-                        <button className={styles.button} onClick={()=>setStep(0)}>Resend link</button>
+                        <button className={styles.buttonPrimary} onClick={() =>history.push('/')}  >Back to home</button>
+                        <button className={styles.buttonPrimary} onClick={()=>setStep(0)}>Resend link</button>
                       </div>
                   </div>
                 )}

@@ -111,10 +111,13 @@ const Login = () => {
                     <GoogleLogin
                       onSuccess={googleSuccess}
                       onError={googleError}
+                      theme="filled_blue"
+                      shape="rectangular"
                       text='continue_with'
                       useOneTap
                       auto_select
                       state_cookie_domain='single_host_origin'
+                      
                     />
                   </GoogleOAuthProvider>
                 </div>

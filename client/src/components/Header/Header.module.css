@@ -40,3 +40,17 @@
   .login:hover {
     background-color: rgb(209, 233, 255);
   }
+
+
+
+  .billwiseText {
+  font-family: 'Segoe UI', 'Arial', 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;           /* Adjust until it matches the image */
+  letter-spacing: 0.08em;
+  color: #3939ab;              /* Or use the exact blue from your image */
+  line-height: 1.1;
+  text-transform: uppercase;
+  vertical-align: middle;
+  display: inline-block;
+}
