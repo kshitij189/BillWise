@@ -2,7 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 
 function Chart({ paymentHistory }) {
-  // ✅ Robust data extraction
+  // Robust data extraction
   let paymentDates = [];
   let paymentReceived = [];
 

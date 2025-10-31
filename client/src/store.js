@@ -1,35 +1,37 @@
 
 //store
-//array of booorowers
+//array of borrowers
 
 
 const store = [
-    {name: 'gps', quantity: 500, type: 'gps'},
-    {name: 'mistnet', quantity: 500, type: 'misnet'},
-    {name: 'camera', quantity: 200, type: 'camera'},
-    {name: 'trap', quantity: 500, type: 'trap'},
-    {name: 'binocular', quantity: 500, type: 'binocular'},
-   
+    {name: 'running shoes', quantity: 300, type: 'shoes'},
+    {name: 'sleeping bag', quantity: 150, type: 'gear'},
+    {name: 'bicycle helmet', quantity: 100, type: 'helmet'},
+    {name: 'hiking backpack', quantity: 250, type: 'backpack'},
+    {name: 'inflatable camping mattress', quantity: 100, type: 'mattress'},
 ]
+
 
 
 const status =['pending', 'delivered', 'returned']
 
 
 const lenders = [
-    { name: 'Krishna Tripathi', type: 'mistnest', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
-    { name: 'Abhishek Sharma', type: 'gps', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
-    { name: 'Kartik Chauhan', type: 'camera', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
-    { name: 'Jatin Singh', type: 'trap', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
-    { name: 'Bello Adamu', type: 'gps', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
+    { name: 'Krishna Tripathi', type: 'gear', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
+    { name: 'Abhishek Sharma', type: 'shoes', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
+    { name: 'Kartik Chauhan', type: 'helmet', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
+    { name: 'Jatin Singh', type: 'backpack', quantity: 20, date: new Date(), status: 'pending', dateDue: ''},
+    { name: 'Raj Verma', type: 'shoes', quantity: 20, date: new Date(), status: 'pending', dateDue: ''}
 ]
 
-const gpsLenders = lenders.filter((lender) => lender.type === 'gps')
-const mistnetLenders = lenders.filter((lender) => lender.type === 'mistnet')
-const cameraLenders = lenders.filter((lender) => lender.type === 'binocular')
 
-let availableGps = 0
-for(let i = 0; i< gpsLenders.length; i++) {
-    availableGps  += gpsLenders[i].quantity
+const shoesLenders = lenders.filter(lender => lender.type === 'shoes');
+const gearLenders = lenders.filter(lender => lender.type === 'gear');
+const helmetLenders = lenders.filter(lender => lender.type === 'helmet');
+
+let availableShoes = 0;
+for (let lender of shoesLenders) {
+  availableShoes += lender.quantity;
 }
+
 
