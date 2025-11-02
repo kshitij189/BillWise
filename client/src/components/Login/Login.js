@@ -66,7 +66,7 @@ const Login = () => {
     }
     const googleError =(error) => {
         console.log(error)
-        console.log("Google Sign In was unseccassful. Try again later")
+        console.log("Google Sign In was unsuccessful. Try again later")
     }
 
 
