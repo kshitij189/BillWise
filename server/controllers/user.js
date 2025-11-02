@@ -31,7 +31,7 @@ export const signin = async (req, res) => {
     const token = jwt.sign(
       { email: existingUser.email, id: existingUser._id },
       SECRET,
-      { algorithm: "HS256", expiresIn: "1h" }
+      { algorithm: "HS256", expiresIn: "12h" }
     );
 
     res.status(200).json({ result: existingUser, userProfile, token });
@@ -65,7 +65,7 @@ export const signup = async (req, res) => {
     const token = jwt.sign(
       { email: result.email, id: result._id },
       SECRET,
-      { algorithm: "HS256", expiresIn: "1h" }
+      { algorithm: "HS256", expiresIn: "12h" }
     );
 
     res.status(200).json({ result, userProfile, token });
