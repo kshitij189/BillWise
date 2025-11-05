@@ -15,7 +15,7 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
-    "apexcharts": "^3.28.1",
+    "apexcharts": "^5.3.6",
     "axios": "^1.13.1",
     "d3-color": "^3.1.0",
     "d3-interpolate": "^3.0.1",
