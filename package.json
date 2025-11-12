@@ -1,0 +1,12 @@
+{
+  "name": "billwise-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cd server && npm start",
+    "build": "cd client && npm install --legacy-peer-deps && npm run build"
+  },
+  "engines": {
+    "node": "22.16.0"
+  }
+}
