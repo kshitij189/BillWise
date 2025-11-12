@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "cd server && npm start",
-    "build": "cd client && npm install --legacy-peer-deps && npm run build"
+    "install": "cd client && npm install --legacy-peer-deps && cd ../server && npm install --legacy-peer-deps",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
   },
   "engines": {
     "node": "22.16.0"
